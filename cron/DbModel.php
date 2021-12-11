@@ -4,10 +4,8 @@ require 'config.php';
 
 class DbModel implements StorageInterface
 {
-    /**
-     * @var PDO
-     */
-    private PDO $db;
+
+    private $db;
 
     public function __construct()
     {
@@ -103,5 +101,10 @@ class DbModel implements StorageInterface
     public function updateProductQuantity($quantity, $productModel)
     {
         $this->db->query("UPDATE " . DB_PREFIX . "product SET quantity = '" . $quantity . "' WHERE model = '" . (int)$productModel . "'");
+    }
+
+    public function __destruct()
+    {
+        $this->db = null;
     }
 }
