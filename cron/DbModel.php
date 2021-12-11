@@ -1,6 +1,6 @@
 <?php
-require '../system/ModelInterface/StorageInterface.php';
-require '../config.php';
+require 'system/ModelInterface/StorageInterface.php';
+require 'config.php';
 
 class DbModel implements StorageInterface
 {
@@ -97,7 +97,7 @@ class DbModel implements StorageInterface
 
     public function saveStorageProducts($productModel, $quantity, $idStorage)
     {
-        $this->db->query("UPDATE " . DB_PREFIX . "stores_products SET quantity = '" . (int)$quantity . "' WHERE product_model = '" . (int)$productModel . "' AND store_alias='". $idStorage ."'");
+        $this->db->query("INSERT INTO `" . DB_PREFIX . "stores_products` SET product_model = '" . (int)$productModel . "', quantity = '" . (int)$quantity . "', store_alias = '". $idStorage ."'" );
     }
 
     public function updateProductQuantity($quantity, $productModel)

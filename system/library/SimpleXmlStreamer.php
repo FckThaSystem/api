@@ -27,7 +27,7 @@ class SimpleXmlStreamer extends XmlExchange {
 
             // get product discount
             if($data_customer_id && $data_product_id){
-                $exists = $this->dbModel->getProductDiscount($data_customer_id, $data_product_id);
+                $exists = $this->dbModel->getProductDiscount($data_product_id, $data_customer_id);
                 if($exists){
                     $this->dbModel->updateDiscount($int_price,(int)$data_product_id,$data_customer_id);
                 }else{
