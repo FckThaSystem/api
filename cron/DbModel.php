@@ -103,6 +103,13 @@ class DbModel implements StorageInterface
         $this->db->query("UPDATE " . DB_PREFIX . "product SET quantity = '" . $quantity . "' WHERE model = '" . (int)$productModel . "'");
     }
 
+    public function getProductDiscounts($product_id){
+        $query = $this->db->query("SELECT customer_group_id FROM " . DB_PREFIX . "product_discount WHERE product_id = '" . $product_id . "'");
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_ASSOC);;
+    }
+
     public function __destruct()
     {
         $this->db = null;

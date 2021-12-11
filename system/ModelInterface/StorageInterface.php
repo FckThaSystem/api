@@ -21,4 +21,6 @@ interface StorageInterface
     public function saveStorageProducts($productModel,$quantity,$idStorage);
 
     public function updateProductQuantity($quantity,$productModel);
+
+    public function getProductDiscounts($product_id);
 }

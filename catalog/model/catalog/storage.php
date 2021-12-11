@@ -44,6 +44,17 @@ class ModelCatalogStorage extends Model
     }
 
     /**
+     * @param $product_id
+     * @return mixed
+     */
+    public function getProductDiscounts($product_id)
+    {
+        $query = $this->db->query("SELECT customer_group_id FROM " . DB_PREFIX . "product_discount WHERE product_id = '" . $product_id . "'");
+
+        return $query->rows;
+    }
+
+    /**
      * @param $int_price
      * @param $product_id
      * @param $customer_id

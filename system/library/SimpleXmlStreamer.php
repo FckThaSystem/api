@@ -17,6 +17,7 @@ class SimpleXmlStreamer extends XmlExchange {
 
         // get product id
         $data_product_id = $this->dbModel->getProductId($productModel);
+        $dataProductDiscounts = $this->dbModel->getProductDiscounts($data_product_id);
 
         // customers groups
         foreach ($model->prices->price as $price) {
@@ -27,8 +28,11 @@ class SimpleXmlStreamer extends XmlExchange {
 
             // get product discount
             if($data_customer_id && $data_product_id){
-                $exists = $this->dbModel->getProductDiscount($data_product_id, $data_customer_id);
-                if($exists){
+                $arrayFilter = array_filter($dataProductDiscounts, function($v, $k) use ($data_customer_id) {
+                    return $v['customer_group_id'] == $data_customer_id;
+                }, ARRAY_FILTER_USE_BOTH);
+
+                if($arrayFilter){
                     $this->dbModel->updateDiscount($int_price,(int)$data_product_id,$data_customer_id);
                 }else{
                     $this->dbModel->save((int)$data_product_id, (int)$data_customer_id, $int_price);
