@@ -1,0 +1,9 @@
+.idea
+config.php
+admin/config.php
+
+storage
+system/storage
+/*.xml
+.htaccess
+php.ini
