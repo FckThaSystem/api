@@ -15,15 +15,15 @@ class SimpleXmlStreamer extends XmlExchange {
 
         $productModel = $model->attributes()->ID->__toString();
 
+        // get product id
+        $data_product_id = $this->dbModel->getProductId($productModel);
+
         // customers groups
         foreach ($model->prices->price as $price) {
             $idPrice = $price->attributes()->ID->__toString();
             $int_price = ceil((int)str_replace(" ", "", $price->__toString()));
 
             $data_customer_id = $this->dbModel->getCustomerGroup($idPrice);
-
-            // get product id
-            $data_product_id = $this->dbModel->getProductId($productModel);
 
             // get product discount
             if($data_customer_id && $data_product_id){
