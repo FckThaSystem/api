@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    <model ID="52424">
+        <prices>
+            <price ID="000000049">1 031,48</price>
+            <price ID="000000031">1 386</price>
+            <price ID="000000034">1 386</price>
+            <price ID="000000019">896,94</price>
+            <price ID="000000005">1 071</price>
+            <price ID="000000008">970,2</price>
+        </prices>
+        <storages>
+            <storage ID="000000532">0</storage>
+            <storage ID="000000539">2</storage>
+            <storage ID="000000540">0</storage>
+            <storage ID="000000542">0</storage>
+            <storage ID="000000034">0</storage>
+            <storage ID="000000035">3</storage>
+            <storage ID="000000131">0</storage>
+        </storages>
+    </model>
+</Root>
